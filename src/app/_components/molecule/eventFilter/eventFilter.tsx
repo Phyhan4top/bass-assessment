@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { CheckboxFilter } from "../checkboxFilter/checkboxFilter";
 import UiInput from "../../atom/input";
+import NextImage from "../../atom/image";
 
 const EventFilter = () => {
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
@@ -15,6 +16,7 @@ const EventFilter = () => {
       />
       <div className="flex flex-col justify-start items-start gap-3">
         <h1 className="text-xl font-bold">Price Range</h1>
+        <NextImage src="/icons/chartbar_range.svg" className="w-full" />
         <div className="flex justify-start gap-10 items-center">
           <div className="flex gap-3 flex-col justify-start items-start">
             <label

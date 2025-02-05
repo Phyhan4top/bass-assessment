@@ -57,8 +57,6 @@ export default function SearchFilters() {
     priceFilter.max,
   ]);
 
-  console.log("Filtered Events:", filteredEvents); // Debugging
-
   return (
     <div className="flex flex-col p-4 w-full">
       <div className="flex justify-between items-center px-3">
