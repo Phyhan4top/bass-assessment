@@ -19,11 +19,11 @@ type FormValuesType = {
 type FormProps = {
   name: string;
   onChange: {
-    (e: ChangeEvent<unknown>): void;
+    (e: ChangeEvent<any>): void;
   };
   value: string | string[] | undefined;
-  error: unknown;
-  onBlur: unknown;
+  error: any;
+  onBlur: any;
   clearInput: () => void;
 };
 

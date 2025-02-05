@@ -21,7 +21,7 @@ const UiCheckbox: FC<UiCheckboxProps> = (props: UiCheckboxProps) => {
         className="hidden"
         checked={checked}
         onChange={onChange}
-        {...(rest as unknown)}
+        {...(rest as any)}
       />
 
       {checked ? checkIcon : UnCheckIcon}
