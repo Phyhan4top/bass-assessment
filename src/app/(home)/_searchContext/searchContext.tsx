@@ -1,5 +1,5 @@
 "use client";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import {
   ChangeEvent,
   ReactNode,
@@ -19,11 +19,11 @@ type FormValuesType = {
 type FormProps = {
   name: string;
   onChange: {
-    (e: ChangeEvent<any>): void;
+    (e: ChangeEvent<unknown>): void;
   };
   value: string | string[] | undefined;
-  error: any;
-  onBlur: any;
+  error: unknown;
+  onBlur: unknown;
   clearInput: () => void;
 };
 
@@ -55,7 +55,6 @@ export const useSearchContext = () => {
 };
 
 export default function SearchProvider({ children }: { children: ReactNode }) {
-  const searchParams = useSearchParams();
   const router = useRouter();
   const formik = useFormik<FormValuesType>({
     initialValues: {

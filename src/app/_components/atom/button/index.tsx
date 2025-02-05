@@ -1,36 +1,36 @@
-import classNames from 'classnames';
-import Link from 'next/link';
-import { forwardRef } from 'react';
-import { twMerge } from 'tailwind-merge';
-import { UiSpinner } from '../spinner';
-import { disabledStyles, sizeStyles, styles } from './styles';
-import UiButtonProps from './types';
+import classNames from "classnames";
+import Link from "next/link";
+import { forwardRef } from "react";
+import { twMerge } from "tailwind-merge";
+import { UiSpinner } from "../spinner";
+import { disabledStyles, sizeStyles, styles } from "./styles";
+import UiButtonProps from "./types";
 
 export const UiButton = forwardRef<
   typeof Link | HTMLButtonElement,
   UiButtonProps
 >(function ForwardedButton(props, ref) {
   const {
-    variant = 'filled',
-    color = 'primary',
-    size = 'md',
+    variant = "filled",
+    color = "primary",
+    size = "md",
     children,
     loading,
     disabled = false,
-    className = '',
+    className = "",
     as: C = Link,
     hoverEffect = true,
 
     ...rest
   } = props;
 
-  const Component = C === 'a' ? Link : C;
+  const Component = C === "a" ? Link : C;
   return (
     <Component
-      ref={ref as any}
+      ref={ref as unknown}
       className={twMerge(
         classNames(
-          'inline-flex items-center justify-center border-none capitalize outline-none ring-offset-1 transition-colors duration-300 focus-visible:ring-2',
+          "inline-flex items-center justify-center border-none capitalize outline-none ring-offset-1 transition-colors duration-300 focus-visible:ring-2",
           // styles[variant][color],
           sizeStyles[size],
           {
@@ -38,12 +38,12 @@ export const UiButton = forwardRef<
             [`${filterHoverClasses(styles[variant][color])}`]: !hoverEffect,
             [`${disabledStyles[variant][color]}`]: disabled || loading,
           },
-          className,
-        ),
+          className
+        )
       )}
       disabled={disabled}
       type="button"
-      {...(rest as any)}
+      {...(rest as unknown)}
     >
       {loading && <UiSpinner className="mr-2 h-4 w-4 text-gray-900/50" />}
       {children}
@@ -52,9 +52,9 @@ export const UiButton = forwardRef<
 });
 
 function filterHoverClasses(classNames: string) {
-  const classes = classNames.split(' ');
-  const filteredClasses = classes.filter((cls) => !cls.startsWith('hover:'));
-  return filteredClasses.join(' ');
+  const classes = classNames.split(" ");
+  const filteredClasses = classes.filter((cls) => !cls.startsWith("hover:"));
+  return filteredClasses.join(" ");
 }
 
 export default UiButton;

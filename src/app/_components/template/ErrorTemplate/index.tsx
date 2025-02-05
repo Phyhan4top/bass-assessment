@@ -1,14 +1,14 @@
-'use client';
+"use client";
 
-import { FC } from 'react';
-import UiButton from '../../atom/button';
+import { FC } from "react";
+import UiButton from "../../atom/button";
 
 const ErrorTemplate: FC<{
   className?: string;
   title: string;
-  error: any;
+  error: unknown;
   reset: () => void;
-}> = ({ title = '', error, reset }) => {
+}> = ({ title = "", error, reset }) => {
   return (
     <div className="my-8 grid h-full place-content-center rounded-lg border border-solid border-gray-400  bg-white p-8 px-4">
       <div className="text-center">

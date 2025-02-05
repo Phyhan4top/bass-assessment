@@ -1,6 +1,6 @@
-import { FC } from 'react';
-import { twMerge } from 'tailwind-merge';
-import { UiCheckboxProps } from './types';
+import { FC } from "react";
+import { twMerge } from "tailwind-merge";
+import { UiCheckboxProps } from "./types";
 
 const UiCheckbox: FC<UiCheckboxProps> = (props: UiCheckboxProps) => {
   const { checked, onChange, label, rounded, className, iconColor, ...rest } =
@@ -14,14 +14,14 @@ const UiCheckbox: FC<UiCheckboxProps> = (props: UiCheckboxProps) => {
     : uncheckedSquare(iconColor);
   return (
     <label
-      className={twMerge('mr-2 flex cursor-pointer items-center', className)}
+      className={twMerge("mr-2 flex cursor-pointer items-center", className)}
     >
       <input
         type="checkbox"
         className="hidden"
         checked={checked}
         onChange={onChange}
-        {...(rest as any)}
+        {...(rest as unknown)}
       />
 
       {checked ? checkIcon : UnCheckIcon}
@@ -30,7 +30,7 @@ const UiCheckbox: FC<UiCheckboxProps> = (props: UiCheckboxProps) => {
   );
 };
 
-const checkedSquare = (iconColor = '#212121') => (
+const checkedSquare = (iconColor = "#212121") => (
   <svg
     width="25"
     height="25"
@@ -55,7 +55,7 @@ const checkedSquare = (iconColor = '#212121') => (
   </svg>
 );
 
-const uncheckedSquare = (iconColor = '#212121') => (
+const uncheckedSquare = (iconColor = "#212121") => (
   <svg
     width="25"
     height="25"
@@ -73,7 +73,7 @@ const uncheckedSquare = (iconColor = '#212121') => (
   </svg>
 );
 
-const checkedCircle = (iconColor = '#656565') => (
+const checkedCircle = (iconColor = "#656565") => (
   <svg
     width="24"
     height="24"
@@ -98,7 +98,7 @@ const checkedCircle = (iconColor = '#656565') => (
   </svg>
 );
 
-const unCheckedCircle = (iconColor = '#656565') => (
+const unCheckedCircle = (iconColor = "#656565") => (
   <svg
     width="25"
     height="24"

@@ -50,7 +50,7 @@ const EventFilter = () => {
       </div>
       <CheckboxFilter
         title="Guest Ratings"
-        categories={["Any", "Excellent", "Very good", "Good"]}
+        categories={["any", "Excellent", "Very good", "Good"]}
         selectedCategories={selectedCategories}
         onChange={setSelectedCategories}
       />
