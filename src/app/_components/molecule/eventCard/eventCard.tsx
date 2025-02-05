@@ -43,28 +43,28 @@ const EventCard = ({
       <img
         src={clientData.src}
         alt={clientData.name}
-        className="w-full md:w-[370.8px] h-[171px] rounded-2xl md:object-cover object-cover"
+        className="w-full md:w-[370.8px] h-[171px] rounded-2xl object-cover"
       />
 
       {/* Event Details Section */}
       <section className="event-details flex  justify-between w-full">
         <div className="flex flex-col gap-2 justify-between">
           <div>
-            <h2 className="text-[20.8px] font-[600] text-[#000]">
+            <h2 className="text-xl font-[600] text-[#000]">
               {clientData.name}
             </h2>
-            <p className="text-[15px] text-[#a2a2a2] font-medium">
+            <p className="text-base text-[#a2a2a2] font-medium">
               {clientData.distance}
             </p>
           </div>
 
           <div>
-            <h3 className="text-[16.8px] font-[600] text-[#000]">Facilities</h3>
+            <h3 className="text-lg font-[600] text-[#000]">Facilities</h3>
             <ul>
               {clientData.facilities.map((facility) => (
                 <li
                   key={facility}
-                  className="text-[15px] text-[#a2a2a2] font-medium"
+                  className="text-base text-[#a2a2a2] font-medium"
                 >
                   {facility}
                 </li>

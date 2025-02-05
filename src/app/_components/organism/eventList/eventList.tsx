@@ -4,7 +4,7 @@ import EventCard from "../../molecule/eventCard/eventCard";
 
 const itemsPerPage = 6; // Change this to control items per page
 
-const EventList = ({ events }: { events: unknown[] }) => {
+const EventList = ({ events }: { events: any[] }) => {
   const [currentPage, setCurrentPage] = useState(1);
 
   // Calculate the total number of pages
@@ -73,7 +73,7 @@ const EventList = ({ events }: { events: unknown[] }) => {
           ) : (
             <button
               key={index}
-              onClick={() => setCurrentPage(page)}
+              onClick={() => setCurrentPage(Number(page))}
               className={`px-4 py-2 rounded-full ${
                 currentPage === page
                   ? "bg-blue-500 text-white"

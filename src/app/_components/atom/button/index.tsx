@@ -27,7 +27,7 @@ export const UiButton = forwardRef<
   const Component = C === "a" ? Link : C;
   return (
     <Component
-      ref={ref as unknown}
+      ref={ref as any}
       className={twMerge(
         classNames(
           "inline-flex items-center justify-center border-none capitalize outline-none ring-offset-1 transition-colors duration-300 focus-visible:ring-2",
@@ -43,7 +43,7 @@ export const UiButton = forwardRef<
       )}
       disabled={disabled}
       type="button"
-      {...(rest as unknown)}
+      {...(rest as any)}
     >
       {loading && <UiSpinner className="mr-2 h-4 w-4 text-gray-900/50" />}
       {children}

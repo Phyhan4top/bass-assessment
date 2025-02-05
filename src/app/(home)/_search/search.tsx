@@ -2,6 +2,7 @@
 import UiInput from "@/app/_components/atom/input";
 import React from "react";
 import { useSearchContext } from "../_searchContext/searchContext";
+import UiButton from "@/app/_components/atom/button";
 
 const YourSearch = () => {
   const form = useSearchContext();
@@ -52,14 +53,15 @@ const YourSearch = () => {
 #767676] rounded-[18px"
           />
         </div>
-        <UiInput
+        <UiButton
           as="button"
-          rightIcon={false}
+          variant="filled"
           type="submit"
-          value="Search"
+          className="w-full"
           loading={form?.formik.isSubmitting}
-          className="bg-[#0166ff] text-white rounded-[18px]"
-        />
+        >
+          Search
+        </UiButton>
       </div>
     </div>
   );

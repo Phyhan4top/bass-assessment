@@ -6,7 +6,7 @@ import NextImage from "../image";
 import { sizeStyles } from "./styles";
 import { UiInputProps } from "./types";
 
-export const UiInput = forwardRef((props: UiInputProps, ref: unknown) => {
+export const UiInput = forwardRef((props: UiInputProps, ref: any) => {
   const [focus, setFocus] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const generatedId = useId();
@@ -37,13 +37,13 @@ export const UiInput = forwardRef((props: UiInputProps, ref: unknown) => {
     }
   }
 
-  const onFocus = (e: unknown) => {
+  const onFocus = (e: any) => {
     if (rest.onFocus) {
       rest.onFocus(e);
     }
     setFocus(true);
   };
-  const onBlur = (e: unknown) => {
+  const onBlur = (e: any) => {
     if (rest.onBlur) {
       rest.onBlur(e);
     }
@@ -110,7 +110,7 @@ export const UiInput = forwardRef((props: UiInputProps, ref: unknown) => {
             onFocus={onFocus}
             onBlur={onBlur}
             min={0}
-            {...(rest as unknown)}
+            {...(rest as any)}
           />
           {rightIcon && (
             <div className="absolute bottom-0 right-0 top-0 flex w-14 items-center justify-center">

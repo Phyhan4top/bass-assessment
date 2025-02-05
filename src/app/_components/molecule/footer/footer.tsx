@@ -23,8 +23,8 @@ const Footer = () => {
                 <p>FAQ</p>
               </div>
             </div>
-            <div className="compunknown flex flex-col gap-4 justify-start p-0">
-              <h3 className="text-[#000000] text-2xl ">Compunknown</h3>
+            <div className="company flex flex-col gap-4 justify-start p-0">
+              <h3 className="text-[#000000] text-2xl ">Company</h3>
               <div className="text-[#00000099] flex flex-col gap-2 justify-start p-0 text-xl ">
                 <p>About us</p>
                 <p>Host</p>
@@ -38,7 +38,7 @@ const Footer = () => {
             <h3 className="text-[#000000] text-2xl ">Get in touch</h3>
             <div className="text-[#00000099] flex flex-col gap-2 justify-start p-0 text-xl ">
               <p>Emailadress@gmail.com</p>
-              <p>Address of the compunknown</p>
+              <p>Address of the company</p>
               <SocialIcons />
             </div>
           </div>
