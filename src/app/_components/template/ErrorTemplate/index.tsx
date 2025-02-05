@@ -6,7 +6,7 @@ import UiButton from "../../atom/button";
 const ErrorTemplate: FC<{
   className?: string;
   title: string;
-  error: any;
+  error: unknown;
   reset: () => void;
 }> = ({ title = "", error, reset }) => {
   return (

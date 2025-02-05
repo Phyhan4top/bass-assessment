@@ -4,7 +4,7 @@ import EventCard from "../../molecule/eventCard/eventCard";
 
 const itemsPerPage = 6; // Change this to control items per page
 
-const EventList = ({ events }: { events: any[] }) => {
+const EventList = ({ events }: { events: unknown[] }) => {
   const [currentPage, setCurrentPage] = useState(1);
 
   // Calculate the total number of pages

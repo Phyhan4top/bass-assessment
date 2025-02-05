@@ -19,7 +19,7 @@ const NextImage: FC<ImageProps> = (props: ImageProps) => {
         sizes="100vw"
         width={width || 100}
         height={height || 100}
-        {...(rest as any)}
+        {...(rest as unknown)}
       />
     </span>
   );
