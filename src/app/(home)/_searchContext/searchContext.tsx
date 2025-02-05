@@ -1,19 +1,18 @@
 "use client";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import {
   ChangeEvent,
   ReactNode,
   createContext,
+  useContext,
   useEffect,
-  useState,
 } from "react";
+import { FormikProps, useFormik } from "formik";
 import * as Yup from "yup";
-
 type FormValuesType = {
   eventType: string;
   location: string;
-  minPrice: number;
-  maxPrice: number;
+  priceRange: string;
   rating: string;
 };
 
@@ -32,55 +31,54 @@ type formKeyProps = keyof Omit<FormValuesType, "action">;
 
 type FormContext = {
   formProps: (name: formKeyProps) => FormProps;
- 
+
   formik: FormikProps<FormValuesType>;
   resetForm: () => void;
   updateFormFields: (data: FormValuesType) => void;
 };
 
 const validationSchema = Yup.object({
-
   eventType: Yup.string().required("Job Title is required"),
-  minPrice: Yup.number().required("Min Price is required"),
-  maxPrice: Yup.number().required("Max Price is required"),
+  priceRange: Yup.string().required("Min Price is required"),
   location: Yup.string().required("Location is required"),
   rating: Yup.string().required("rating is required"),
 });
 
-export const SearchContext = createContext<FormContext | null>(null);
+const SearchContext = createContext<FormContext | null>(null);
+export const useSearchContext = () => {
+  const context = useContext(SearchContext);
 
-export default function SearchProvider({
-  children,
-}: {
-  children: ReactNode;
-}) {
+  if (!context) {
+    throw new Error("useSearchContext must be used within a SearchProvide");
+  }
+  return context;
+};
+
+export default function SearchProvider({ children }: { children: ReactNode }) {
   const searchParams = useSearchParams();
-  const jobId = searchParams.get("id");
-  const [open, setOpen] = useState(false);
-
-  const onJobCreateSuccess = () => {
-    setOpen(true);
-  };
-
+  const router = useRouter();
   const formik = useFormik<FormValuesType>({
     initialValues: {
-      
       eventType: "",
-      minPrice: "",
-      maxPrice: "",
+      priceRange: "",
       location: "",
       rating: "",
     },
     validationSchema,
     onSubmit: async (values) => {
-   
+      // Convert form values to URLSearchParams
+      const params = new URLSearchParams();
+      Object.entries(values).forEach(([key, value]) => {
+        if (value) params.set(key, value);
+      });
+
+      // Push new search parameters to the URL
+      router.push(`?${params.toString()}`, { scroll: false });
     },
   });
 
   useEffect(() => {
-    (async () => {
-   
-    })();
+    (async () => {})();
   }, []);
 
   const updateFormFields = (data: FormValuesType) => {
@@ -108,8 +106,6 @@ export default function SearchProvider({
     };
   };
 
-
-
   return (
     <SearchContext.Provider
       value={{
@@ -122,7 +118,6 @@ export default function SearchProvider({
       <form onSubmit={formik.handleSubmit} className="w-full">
         {children}
       </form>
-
     </SearchContext.Provider>
   );
 }

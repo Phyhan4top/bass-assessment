@@ -1,21 +1,17 @@
-import Footer from "../_components/molecule/footer/footer";
-import Header from "../_components/molecule/header/header";
-;
-
+import EventFilter from "../_components/molecule/eventFilter/eventFilter";
+import YourSearch from "./_search/search";
+import SearchProvider from "./_searchContext/searchContext";
 export default function Layout({
-  children,events
+  children,
+  eventsList,
 }: {
   children: React.ReactNode;
-  events: React.ReactNode;
-  }) {
-  console.log(events)
+  eventsList: React.ReactNode;
+}) {
   return (
-    <div>
-     
-      <Header />
-      {children}
-      {events}
-      <Footer />
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="lg:col-span-1">{children}</div>
+      <div className="lg:col-span-2">{eventsList}</div>
     </div>
   );
 }

@@ -7,7 +7,6 @@ import {
   IconButton,
   Button,
 } from "@material-tailwind/react";
-import UiButton from "../../atom/button";
 
 export default function Header() {
   const [openNav, setOpenNav] = React.useState(false);
@@ -20,9 +19,9 @@ export default function Header() {
   }, []);
 
   return (
-    <div className="w-[calc(100%+48px)]">
+    <div className="">
       <Navbar className="sticky top-0 z-10 max-w-full rounded-none px-4 py-2 lg:px-8 lg:py-4 bg-inherit text-black">
-        <div className="flex items-center justify-around  h-[95px]">
+        <div className="flex items-center justify-around h-[95px]">
           <Typography
             as="a"
             href="#"

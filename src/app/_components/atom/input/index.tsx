@@ -1,10 +1,10 @@
-'use client';
-import classNames from 'classnames';
-import { forwardRef, useId, useState } from 'react';
-import { twMerge } from 'tailwind-merge';
-import NextImage from '../image';
-import { sizeStyles } from './styles';
-import { UiInputProps } from './types';
+"use client";
+import classNames from "classnames";
+import { forwardRef, useId, useState } from "react";
+import { twMerge } from "tailwind-merge";
+import NextImage from "../image";
+import { sizeStyles } from "./styles";
+import { UiInputProps } from "./types";
 
 export const UiInput = forwardRef((props: UiInputProps, ref: any) => {
   const [focus, setFocus] = useState(false);
@@ -15,13 +15,13 @@ export const UiInput = forwardRef((props: UiInputProps, ref: any) => {
     error,
     id = generatedId,
     required,
-    inputSize = 'md',
+    inputSize = "md",
     className,
     leftIcon,
-    rightIcon = '/icons/cancel.svg',
+    rightIcon = "/icons/cancel.svg",
     showError = false,
     isOtp = false,
-    type = 'string',
+    type = "string",
     clearInput,
     ...rest
   } = props;
@@ -30,7 +30,7 @@ export const UiInput = forwardRef((props: UiInputProps, ref: any) => {
   function getError() {
     if (invalid) {
       return (
-        <div className=" px-3" id={id + '-error'}>
+        <div className=" px-3" id={id + "-error"}>
           <p className="text-sm text-red-400">{error}</p>
         </div>
       );
@@ -69,9 +69,9 @@ export const UiInput = forwardRef((props: UiInputProps, ref: any) => {
 
       <div
         className={twMerge(
-          classNames('relative h-auto w-full', className, {
-            'mb-2': invalid && showError,
-          }),
+          classNames("relative h-auto w-full", className, {
+            "mb-2": invalid && showError,
+          })
         )}
       >
         <div className="relative">
@@ -83,22 +83,22 @@ export const UiInput = forwardRef((props: UiInputProps, ref: any) => {
 
           <input
             ref={ref}
-            type={type === 'password' && showPassword ? 'text' : type}
+            type={type === "password" && showPassword ? "text" : type}
             className={twMerge(
               classNames(
-                'relative flex w-full items-center border border-solid border-black-200 bg-inherit  px-12 text-base text-black-600 placeholder:text-inherit focus:outline-none  disabled:cursor-not-allowed disabled:bg-gray-200',
+                "relative flex w-full items-center border border-solid border-black-200 bg-inherit  px-12 text-base text-black-600 placeholder:text-inherit focus:outline-none  disabled:cursor-not-allowed disabled:bg-gray-200",
                 sizeStyles[inputSize],
                 {
-                  'border-white-200 cursor-not-allowed border  border-solid bg-white-50  text-black-600 opacity-40':
+                  "border-white-200 cursor-not-allowed border  border-solid bg-white-50  text-black-600 opacity-40":
                     rest.disabled,
-                  'border border-solid border-red-600  bg-red-50  text-black-600':
+                  "border border-solid border-red-600  bg-red-50  text-black-600":
                     invalid,
-                  'border border-solid border-blue-400 bg-blue-50':
+                  "border border-solid border-blue-400 bg-blue-50":
                     focus && !invalid,
-                  'pl-4': !leftIcon,
-                  'h-16 p-0 text-center': isOtp,
-                },
-              ),
+                  "pl-4": !leftIcon,
+                  "h-16 p-0 text-center": isOtp,
+                }
+              )
             )}
             id={id}
             required={required}
@@ -106,7 +106,7 @@ export const UiInput = forwardRef((props: UiInputProps, ref: any) => {
             aria-readonly={rest.readOnly}
             aria-disabled={rest.disabled}
             aria-invalid={invalid}
-            aria-describedby={invalid ? id + '-error' : undefined}
+            aria-describedby={invalid ? id + "-error" : undefined}
             onFocus={onFocus}
             onBlur={onBlur}
             min={0}
@@ -116,13 +116,13 @@ export const UiInput = forwardRef((props: UiInputProps, ref: any) => {
             <div className="absolute bottom-0 right-0 top-0 flex w-14 items-center justify-center">
               <NextImage
                 src={
-                  type === 'password' && showPassword
-                    ? '/icons/eyeopen.svg'
+                  type === "password" && showPassword
+                    ? "/icons/eyeopen.svg"
                     : rightIcon
                 }
                 className="cursor-pointer"
                 onClick={
-                  type === 'password' ? togglePasswordVisibility : clearInput
+                  type === "password" ? togglePasswordVisibility : clearInput
                 }
               />
             </div>
@@ -134,6 +134,6 @@ export const UiInput = forwardRef((props: UiInputProps, ref: any) => {
   );
 });
 
-UiInput.displayName = 'UiInput';
+UiInput.displayName = "UiInput";
 
 export default UiInput;
