@@ -1,6 +1,3 @@
-import EventFilter from "../_components/molecule/eventFilter/eventFilter";
-import YourSearch from "./_search/search";
-import SearchProvider from "./_searchContext/searchContext";
 export default function Layout({
   children,
   eventsList,
